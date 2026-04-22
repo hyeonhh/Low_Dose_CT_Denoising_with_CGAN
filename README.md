@@ -40,8 +40,10 @@
 ### 1mm & Sharp
 | Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
 |---|---|---|---|---|
-| **PSNR** | 36.2 | 32.6 |**37.8**| 30.23|
-| **SSIM** | 0.93  | 0.91 |0.93|  0.85|
+| **PSNR(Quater Dose ,Full Dose)** | 35.9 | 35.9|35.9|35.9
+| **PSNR** | 37.3 | 33.12 |**38.97**|  30.34|
+| **SSIM(Quater Dose ,Full Dose)** | 0.9507  |  0.9507 | 0.9507 |   0.9507 |
+| **SSIM** | 0.953 | 0.94 |**0.96**|  0.88|
 
 <table border="0">
    <tr>
@@ -76,8 +78,10 @@
 1mm & Soft
 | Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
 |---|---|---|---|---|
+| **PSNR(Quater Dose ,Full Dose)** |43.3 | 43.33| 44.16|
 | **PSNR** | 38.4 |  29.65 |**39.53**|33.7|
-| **SSIM** | 0.95  | 0.92 |**0.96**|0.901|
+| **SSIM(Quater Dose ,Full Dose)** | 0.97 | 0.97 | 0.97|  0.97|
+| **SSIM** | 0.95 | 0.92 |**0.96**|0.901|
 
 <table border="0">
   <tr>
@@ -115,8 +119,10 @@
 3mm & Sharp
 | Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
 |---|---|---|---|---|
-| **PSNR** | 29.4 | 29.14 |**29.91** |33.7|
-| **SSIM** |  0.91 |0.89 | 0.91 |0.91|
+| **PSNR(Quater Dose ,Full Dose)** | 44.16 | 44.16 | 44.16| 44.16
+| **PSNR** |32.7 | 32.00 | **33.57** |31.9|
+| **SSIM(Quater Dose ,Full Dose)** | 0.97 |0.97|0.97|0.97|
+| **SSIM** |0.93| 0.92| **0.94** |0.88|
 
 <table border="0">
   <tr>
@@ -156,8 +162,10 @@
 3mm & Soft
 | Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
 |---|---|---|---|---|
-| **PSNR** | 29.8 | 29.38| **31.03** |33.95
-| **SSIM** | 0.92| 0.89 |**0.93**|0.91
+| **PSNR(Quater Dose ,Full Dose)** |47.58 | 47.58|47.58|47.58|
+| **PSNR** |33.9 | 32.79| **35.80**|32.70|
+| **SSIM(Quater Dose ,Full Dose)** | 0.99| 0.99 |0.99|  0.99 
+| **SSIM** |0.93| 0.91 |**0.95**|0.88|
 
 <table border="0">
   <tr>
@@ -201,6 +209,8 @@
    - 물리적으로 정보가 소실된 3mm 슬라이스와 인위적으로 에지를 강조한 Sharp 커널의 조합에서 복원 난이도가 가장 높게 나타남. 이는 입력 데이터 자체의 낮은 신호 대 잡음비(SNR)와 구조적 정보 누락에 기인함.
 2. **데이터 로딩 병목 해결을 위한 전처리 로직 최적화**
    - 데이터셋, 데이터 로더 로딩 시  저장된 path를 통해 image load, preprocess, resize 가 이루어지는 것이 원인
+3. **병변과 노이즈의 식별 한계 (Clinical Validity)**:
+   - 
 
 구글 슬라이드 : https://docs.google.com/presentation/d/1iZF5HvIKIUDfgN91kqR2zuEef4898Ti90Ad7n9allpg/edit?usp=sharing
 
