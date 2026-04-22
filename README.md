@@ -28,9 +28,10 @@
 
 ## 실험 과정 및 결과
 - V1 : GAN Loss + L1 Loss 중심 , 수치적으로는 정답과 유사했지만 경계부분이 많이 흐릿해지는 문제 발생
-- V3 : Sobel Edge Loss 도입(가중치 0.01), 윤곽선은 잘 복원했으나 높은 에지 가중치로 인해서 영상 내 노이즈 성분이 과도하게 강조되고, 특정 부위에 아티팩트 발생
+- V3 : Sobel Edge Loss 도입(가중치 0.01), 윤곽선은 잘 복원했으나 높은 가중치로 인해서 영상 내 노이즈 성분이 과도하게 강조되고, 특정 부위에 아티팩트 발생
 - V5 : Sobel Edge Loss 가중치 조정(0.008)을 통해 윤곽선 복원 및 아티팩트 억제
-- V6 : V5와 동일한 조건에서 에포크 수 늘려서 학습(10 추가)
+- V6 : V5와 동일한 조건에서 에포크 수 늘려서 학습(10 추가), 다시 노이즈 성분 및 특정 부위에 아티팩트 발생  
+- V7 : Sobel Edge Loss 가중치 0.009로 조정 
 
 
 ## 정량적 평가 : 복원된 영상의 품질을 객관적으로 측정하기 위해 두 가지 지표 사용
@@ -75,7 +76,7 @@
 </table>
 
 
-1mm & Soft
+### 1mm & Soft
 | Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
 |---|---|---|---|---|
 | **PSNR(Quater Dose ,Full Dose)** |43.3 | 43.33| 44.16|
@@ -116,7 +117,7 @@
 
 
 
-3mm & Sharp
+### 3mm & Sharp
 | Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
 |---|---|---|---|---|
 | **PSNR(Quater Dose ,Full Dose)** | 44.16 | 44.16 | 44.16| 44.16
@@ -159,7 +160,7 @@
 
 
 
-3mm & Soft
+### 3mm & Soft
 | Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
 |---|---|---|---|---|
 | **PSNR(Quater Dose ,Full Dose)** |47.58 | 47.58|47.58|47.58|
@@ -204,14 +205,23 @@
   
 </table>
 
+## 정량적 평가 결과 분석
+프로젝트 실험 결과 대부분의 경우에서 BaseLine 대비 모델의 출력물의 PSNR, SSIM 수치가 하락하는 경향을 보였음.
+1. **PSNR/SSIM의 수치적 특성**:
+   - 저선량 노이즈 CT의 경우 노이즈를 포함하고 있으나, 정답 영상과 픽셀 위치가 일치되어 있어 수치상으로는 높게 측정됨.
+   - 모델 생성 이미지의 경우, 노이즈를 제거하고 에지를 강화하는 과정에서 픽셀 재구성이 나타나고, 이 과정에서 수치적인 오차가 증가함.
+
+
 ## 추가로 개선할 점
 1. **환경별 성능 편차 (3mm & Sharp)**:
    - 물리적으로 정보가 소실된 3mm 슬라이스와 인위적으로 에지를 강조한 Sharp 커널의 조합에서 복원 난이도가 가장 높게 나타남. 이는 입력 데이터 자체의 낮은 신호 대 잡음비(SNR)와 구조적 정보 누락에 기인함.
-2. **데이터 로딩 병목 해결을 위한 전처리 로직 최적화**
+2. **데이터 로딩 병목 해결을 위한 전처리 로직 최적화** (해결 완료)
    - 데이터셋, 데이터 로더 로딩 시  저장된 path를 통해 image load, preprocess, resize 가 이루어지는 것이 원인
-3. **병변과 노이즈의 식별 한계 (Clinical Validity)**:
-   - 
+     - 해결: 코드 실행 시간을 통해 train_test_split 과정에 시간이 약 5분 소요됨을 확인했음 -> dataset 자체를 split하지 않고, index로 분할하는 방식 사용 후 300초에서 0.03초로 단축됨.
+     - 관련 링크 : https://stackoverflow.com/questions/62968187/why-does-train-test-split-take-a-long-time-to-run
 
+
+## 기타 자료 
 구글 슬라이드 : https://docs.google.com/presentation/d/1iZF5HvIKIUDfgN91kqR2zuEef4898Ti90Ad7n9allpg/edit?usp=sharing
 
 
