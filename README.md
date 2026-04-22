@@ -39,12 +39,12 @@
 2. SSIM (Structural Similarity Index Measure) : Generator가 생성한 이미지가 Full Dose CT 이미지와 구조적으로 얼마나 닮았는지 측정하기 위해 사용
 
 ### 1mm & Sharp
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
-|---|---|---|---|---|
-| **PSNR(Quater Dose ,Full Dose)** | 35.9 | 35.9|35.9|35.9
-| **PSNR** | 37.3 | 33.12 |**38.97**|  30.34|
-| **SSIM(Quater Dose ,Full Dose)** | 0.9507  |  0.9507 | 0.9507 |   0.9507 |
-| **SSIM** | 0.953 | 0.94 |**0.96**|  0.88|
+| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 | Model V7|
+|---|---|---|---|---|--|
+| **PSNR(Quater Dose ,Full Dose)** | 35.9 | 35.9|35.9|35.9|35.9|
+| **PSNR** | 37.3 | 33.12 |**38.97**|  30.34|38.89|
+| **SSIM(Quater Dose ,Full Dose)** | 0.9507  |  0.9507 | 0.9507 |   0.9507 |0.9507|
+| **SSIM** | 0.953 | 0.94 |**0.96**|  0.88|0.9543|
 
 <table border="0">
    <tr>
@@ -71,18 +71,24 @@
     <td colspan="3">
     <img width="1000" src="https://github.com/user-attachments/assets/5a288510-7624-44ba-be06-751af13110d0" />
   </tr>
+  <tr>
+    <td align="center"><b>Model V7</b></td>
+    <td colspan="3">
+    <img width="1000" src="https://github.com/user-attachments/assets/271966d5-577b-4d10-8e04-f4199ea7f0dd" />
+    </td>
+  </tr>
 
   
 </table>
 
 
 ### 1mm & Soft
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
-|---|---|---|---|---|
-| **PSNR(Quater Dose ,Full Dose)** |43.3 | 43.33| 44.16|
-| **PSNR** | 38.4 |  29.65 |**39.53**|33.7|
-| **SSIM(Quater Dose ,Full Dose)** | 0.97 | 0.97 | 0.97|  0.97|
-| **SSIM** | 0.95 | 0.92 |**0.96**|0.901|
+| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |Model V7|
+|---|---|---|---|---|--|
+| **PSNR(Quater Dose ,Full Dose)** |43.3 | 43.33| 43.33|43.33
+| **PSNR** | 38.4 |  29.65 |**39.53**|33.7|39.25|
+| **SSIM(Quater Dose ,Full Dose)** | 0.97 | 0.97 | 0.97|  0.97|0.97|
+| **SSIM** | 0.95 | 0.92 |**0.96**|0.901|0.956|
 
 <table border="0">
   <tr>
@@ -113,17 +119,23 @@
     <img width="1000"  src="https://github.com/user-attachments/assets/cb11e67d-525c-433b-aa11-b08d65ddfe0b" />
     </td>
   </tr>
+  <tr>
+    <td align="center"><b>Model V7</b></td>
+    <td colspan="3">
+    <img width="1000" src="https://github.com/user-attachments/assets/9d492142-1438-438b-9345-3a406f62e3f1" />
+    </td>
+  </tr>
 </table>
 
 
 
 ### 3mm & Sharp
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
-|---|---|---|---|---|
-| **PSNR(Quater Dose ,Full Dose)** | 44.16 | 44.16 | 44.16| 44.16
-| **PSNR** |32.7 | 32.00 | **33.57** |31.9|
-| **SSIM(Quater Dose ,Full Dose)** | 0.97 |0.97|0.97|0.97|
-| **SSIM** |0.93| 0.92| **0.94** |0.88|
+| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |Model V7
+|---|---|---|---|---|--|
+| **PSNR(Quater Dose ,Full Dose)** | 44.16 | 44.16 | 44.16| 44.16|44.16
+| **PSNR** |32.7 | 32.00 | **33.57** |31.9|32.69|
+| **SSIM(Quater Dose ,Full Dose)** | 0.97 |0.97|0.97|0.97|0.97|
+| **SSIM** |0.93| 0.92| **0.94** |0.88|0.92|
 
 <table border="0">
   <tr>
@@ -155,18 +167,24 @@
    <img width="1000"  src="https://github.com/user-attachments/assets/8f28e519-dd6a-4aa3-bfe7-d44a8dab91d7" />
     </td>
  </tr>
+ <tr>
+    <td align="center"><b>Model V7</b></td>
+    <td colspan="3">
+   <img width="1000" src="https://github.com/user-attachments/assets/e85791a3-d193-4918-865a-b3a867ea0a80" />
+    </td>
+ </tr>
   
 </table>
 
 
 
 ### 3mm & Soft
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |
-|---|---|---|---|---|
-| **PSNR(Quater Dose ,Full Dose)** |47.58 | 47.58|47.58|47.58|
-| **PSNR** |33.9 | 32.79| **35.80**|32.70|
-| **SSIM(Quater Dose ,Full Dose)** | 0.99| 0.99 |0.99|  0.99 
-| **SSIM** |0.93| 0.91 |**0.95**|0.88|
+| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |Model V7|
+|---|---|---|---|---|--|
+| **PSNR(Quater Dose ,Full Dose)** |47.58 | 47.58|47.58|47.58|47.58
+| **PSNR** |33.9 | 32.79| **35.80**|32.70|34.80|
+| **SSIM(Quater Dose ,Full Dose)** | 0.99| 0.99 |0.99|  0.99 |0.99
+| **SSIM** |0.93| 0.91 |**0.95**|0.88|0.945
 
 <table border="0">
   <tr>
@@ -199,6 +217,12 @@
     <td align="center"><b>Model V6</b></td>
     <td colspan="3">
       <img src="https://github.com/user-attachments/assets/87957aa8-d877-4560-b8b3-7f18efa42667" width="1000">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><b>Model V7</b></td>
+    <td colspan="3">
+    <img width="1000" src="https://github.com/user-attachments/assets/a5f740a0-1e87-457b-a142-1a31f92eb6c9" />
     </td>
   </tr>
 </table>
