@@ -32,19 +32,21 @@
 - V5 : Sobel Edge Loss 가중치 조정(0.008)을 통해 윤곽선 복원 및 아티팩트 억제
 - V6 : V5와 동일한 조건에서 에포크 수 늘려서 학습(10 추가), 다시 노이즈 성분 및 특정 부위에 아티팩트 발생  
 - V7 : Sobel Edge Loss 가중치 0.009로 조정 
-
+- **V8(Final)** : 오차 곡선의 진동 및 인위적인 아티팩트 발생을 해결하기 위해 PatchGAN 도입 
+- V9 : V8에서 5 epoch 학습을 추가 진행
 
 ## 정량적 평가 : 복원된 영상의 품질을 객관적으로 측정하기 위해 두 가지 지표 사용
 1. PSNR (Peak Signal-to-Noise Ratio) : Generator가 이미지를 만들면서 발생한 Full dose CT 이미지와의 오차를 계산하기 위해 사용, 수치가 높을수록 Low dose noise가 성공적으로 제거되었음을 의미함
 2. SSIM (Structural Similarity Index Measure) : Generator가 생성한 이미지가 Full Dose CT 이미지와 구조적으로 얼마나 닮았는지 측정하기 위해 사용
 
 ### 1mm & Sharp
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 | Model V7|
-|---|---|---|---|---|--|
-| **PSNR(Quater Dose ,Full Dose)** | 35.9 | 35.9|35.9|35.9|35.9|
-| **PSNR** | 37.3 | 33.12 |**38.97**|  30.34|38.89|
-| **SSIM(Quater Dose ,Full Dose)** | 0.9507  |  0.9507 | 0.9507 |   0.9507 |0.9507|
-| **SSIM** | 0.953 | 0.94 |**0.96**|  0.88|0.9543|
+| Metric | V1 | Final Model(V8) |V9|
+|---|---|---|---|
+| **PSNR(Original)** | 35.9679 | 35.9679|35.9679|
+| **PSNR** | 37.9634 | 40.5719 |42.5270|
+| **SSIM(Original)** | 0.9507  |  0.9507 | 0.9507 |
+| **SSIM** | 0.9616 |0.97636 |0.9797|
+
 
 <table border="0">
    <tr>
@@ -54,41 +56,30 @@
   <tr>
     <td align="center"><b>Model V1</b></td>
     <td colspan="3">
-     <img width="1000"src="https://github.com/user-attachments/assets/9e020ee9-0332-4521-a706-103007d897f0" />
+     <img width="1000"src="https://github.com/user-attachments/assets/7f49d0b2-4852-440a-b841-073c19c171f0" />
   </tr>
   <tr>
-    <td align="center"><b>Model V3</b></td>
+    <td align="center"><b>Model V8</b></td>
     <td colspan="3">
-  <img  width="1000" src="https://github.com/user-attachments/assets/238e8161-44ae-442a-b4cd-7807ce251810" />
+  <img  width="1000" src="https://github.com/user-attachments/assets/792206c4-102c-4bc1-a8dd-57e54bb66c10" />
   </tr>
   <tr>
-    <td align="center"><b>Model V5</b></td>
+    <td align="center"><b>Model V9</b></td>
     <td colspan="3">
-    <img width="1000" src="https://github.com/user-attachments/assets/a6727b51-754b-4a0c-9f7e-e881158ed20d" />
+    <img width="1000" src="https://github.com/user-attachments/assets/f29626e8-50c2-442a-848b-4f1234bb0eae" />
   </tr>
-  <tr>
-    <td align="center"><b>Model V6</b></td>
-    <td colspan="3">
-    <img width="1000" src="https://github.com/user-attachments/assets/5a288510-7624-44ba-be06-751af13110d0" />
-  </tr>
-  <tr>
-    <td align="center"><b>Model V7</b></td>
-    <td colspan="3">
-    <img width="1000" src="https://github.com/user-attachments/assets/271966d5-577b-4d10-8e04-f4199ea7f0dd" />
-    </td>
-  </tr>
-
-  
 </table>
 
 
+
 ### 1mm & Soft
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |Model V7|
-|---|---|---|---|---|--|
-| **PSNR(Quater Dose ,Full Dose)** |43.3 | 43.33| 43.33|43.33
-| **PSNR** | 38.4 |  29.65 |**39.53**|33.7|39.25|
-| **SSIM(Quater Dose ,Full Dose)** | 0.97 | 0.97 | 0.97|  0.97|0.97|
-| **SSIM** | 0.95 | 0.92 |**0.96**|0.901|0.956|
+| Metric | V1 | Final Model(V8) |V9|
+|---|---|---|---|
+| **PSNR(Original)** |43.3312 | 43.3312 |43.3312 |
+| **PSNR** |38.0997 |  43.17484|42.1794|
+| **SSIM(Original)** | 0.9738 | 0.9738|0.9738|
+| **SSIM** |  0.9642| 0.9827 |0.9834|
+
 
 <table border="0">
   <tr>
@@ -98,44 +89,34 @@
  <tr>
     <td align="center"><b>Model V1</b></td>
     <td colspan="3">
-   <img width="1000" src="https://github.com/user-attachments/assets/1c5c483c-715e-4ca9-86bc-62ef1eff1770" />
+   <img width="1000" src="https://github.com/user-attachments/assets/f0117b1a-5bbd-4d3a-8504-e40a70c29db1" />
     </td>
  </tr>
  <tr>
-    <td align="center"><b>Model V3</b></td>
+    <td align="center"><b>Model V8(Final)</b></td>
     <td colspan="3">
-   <img width="1000" src="https://github.com/user-attachments/assets/e051e76c-74b2-45e8-bea8-f0d8fbc6b698" />
+   <img width="1000" src="https://github.com/user-attachments/assets/b6d192f3-5d6c-4abf-894c-d5e8f74d6ef2" />
     </td>
  </tr>
- <tr>
-    <td align="center"><b>Model V5</b></td>
+  
+   <tr>
+    <td align="center"><b>Model V9</b></td>
     <td colspan="3">
-   <img width="1000"  src="https://github.com/user-attachments/assets/f69e6216-ef82-4ad3-b6a0-77d5b9e7ca42" />
+   <img width="1000" src="https://github.com/user-attachments/assets/fa150526-2bee-4204-8600-0e95f0764bc0" />
     </td>
  </tr>
-  <tr>
-     <td align="center"><b>Model V6</b></td>
-    <td colspan="3">
-    <img width="1000"  src="https://github.com/user-attachments/assets/cb11e67d-525c-433b-aa11-b08d65ddfe0b" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>Model V7</b></td>
-    <td colspan="3">
-    <img width="1000" src="https://github.com/user-attachments/assets/9d492142-1438-438b-9345-3a406f62e3f1" />
-    </td>
-  </tr>
 </table>
 
 
 
+
 ### 3mm & Sharp
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |Model V7
-|---|---|---|---|---|--|
-| **PSNR(Quater Dose ,Full Dose)** | 44.16 | 44.16 | 44.16| 44.16|44.16
-| **PSNR** |32.7 | 32.00 | **33.57** |31.9|32.69|
-| **SSIM(Quater Dose ,Full Dose)** | 0.97 |0.97|0.97|0.97|0.97|
-| **SSIM** |0.93| 0.92| **0.94** |0.88|0.92|
+| Metric | V1 | Final Model(V8) |V9|
+|---|---|---|---|
+| **PSNR(Original)** | 44.1647 |  44.1647|  44.1647|
+| **PSNR** |38.2807 | 44.4933 |44.5578|
+| **SSIM(Original)** |  0.9790| 0.9790| 0.9790|
+| **SSIM** | 0.9690 |0.98795|0.9883  |
 
 <table border="0">
   <tr>
@@ -146,45 +127,33 @@
  <tr>
    <td align="center"><b>Model V1</b></td>
     <td colspan="3">
-   <img width="1000" src="https://github.com/user-attachments/assets/8ee9d468-f7a1-48d9-9de8-abcfe5ebcf92" />
+   <img width="1000" src="https://github.com/user-attachments/assets/7318f475-5462-4ecb-a77c-42d31d6e82d9"" />
     </td>
  </tr>
  <tr>
-    <td align="center"><b>Model V3</b></td>
+    <td align="center"><b>Model V8(Final)</b></td>
     <td colspan="3">
-   <img width="1000" src="https://github.com/user-attachments/assets/60c0d339-4938-46ca-884d-574982def237" />
+   <img width="1000" src="https://github.com/user-attachments/assets/566d863b-b511-4eb0-b5a7-1679415256a8" />
     </td>
  </tr>
+
  <tr>
-   <td align="center"><b>Model V5</b></td>
+   <td align="center"><b>Model V9</b></td>
     <td colspan="3">
-   <img width="1000" src="https://github.com/user-attachments/assets/9f31bb83-29b1-4a41-9293-8b024a524d64" />
+   <img width="1000" src="https://github.com/user-attachments/assets/f660cb99-6aff-4792-9be0-dc67820aea10" />
     </td>
  </tr>
- <tr>
-      <td align="center"><b>Model V6</b></td>
-    <td colspan="3">
-   <img width="1000"  src="https://github.com/user-attachments/assets/8f28e519-dd6a-4aa3-bfe7-d44a8dab91d7" />
-    </td>
- </tr>
- <tr>
-    <td align="center"><b>Model V7</b></td>
-    <td colspan="3">
-   <img width="1000" src="https://github.com/user-attachments/assets/e85791a3-d193-4918-865a-b3a867ea0a80" />
-    </td>
- </tr>
-  
 </table>
 
 
 
 ### 3mm & Soft
-| Metric | Model V1 | Model V3 | Model V5 (Final) | Model V6 |Model V7|
-|---|---|---|---|---|--|
-| **PSNR(Quater Dose ,Full Dose)** |47.58 | 47.58|47.58|47.58|47.58
-| **PSNR** |33.9 | 32.79| **35.80**|32.70|34.80|
-| **SSIM(Quater Dose ,Full Dose)** | 0.99| 0.99 |0.99|  0.99 |0.99
-| **SSIM** |0.93| 0.91 |**0.95**|0.88|0.945
+| Metric | V1 | Final Model(V8) |V9|
+|---|---|---|---|
+| **PSNR(Original)** | 47.5858 |  47.5858 | 47.5858 | 
+| **PSNR** |37.8747 | 41.6511| 43.8558|
+| **SSIM(Original)** | 0.9912|  0.9912 | 0.9912|
+| **SSIM** |0.9702|0.9879 |0.9885|
 
 <table border="0">
   <tr>
@@ -195,37 +164,25 @@
   <tr>
     <td align="center"><b>Model V1</b></td>
     <td colspan="3">
-      <img src="https://github.com/user-attachments/assets/d5b421f9-489b-40bb-ba2f-377bbbf7dae9" width="1000">
+      <img src="https://github.com/user-attachments/assets/d1429da0-e77c-4bcb-ac41-a841accc8b2f" width="1000">
     </td>
   </tr>
   
   <tr>
-    <td align="center"><b>Model V3</b></td>
+    <td align="center"><b>Model V8(Final)</b></td>
     <td colspan="3">
-      <img src="https://github.com/user-attachments/assets/9f9c4393-d482-4301-848e-089d85ebb848" width="1000">
+      <img src="https://github.com/user-attachments/assets/db302b64-ee62-42bc-859d-67d9b63edd53" width="1000">
     </td>
   </tr>
   
   <tr>
-    <td align="center"><b>Model V5</b></td>
+    <td align="center"><b>Model V9</b></td>
     <td colspan="3">
-      <img src="https://github.com/user-attachments/assets/c9d25a95-81d1-4025-a35f-cddd8e276f3d" width="1000">
-    </td>
-  </tr>
-  
-  <tr>
-    <td align="center"><b>Model V6</b></td>
-    <td colspan="3">
-      <img src="https://github.com/user-attachments/assets/87957aa8-d877-4560-b8b3-7f18efa42667" width="1000">
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>Model V7</b></td>
-    <td colspan="3">
-    <img width="1000" src="https://github.com/user-attachments/assets/a5f740a0-1e87-457b-a142-1a31f92eb6c9" />
+      <img src="https://github.com/user-attachments/assets/beec87e8-7f71-4b3d-b7ba-c51e10fb1043" width="1000">
     </td>
   </tr>
 </table>
+
   
 </table>
 
@@ -235,15 +192,41 @@
    - 저선량 노이즈 CT의 경우 노이즈를 포함하고 있으나, 정답 영상과 픽셀 위치가 일치되어 있어 수치상으로는 높게 측정됨.
    - 모델 생성 이미지의 경우, 노이즈를 제거하고 에지를 강화하는 과정에서 픽셀 재구성이 나타나고, 이 과정에서 수치적인 오차가 증가함.
 
+## 주파수 스펙트럼 결과
+- 각 모델버전 별로 주파수 스펙트럼 이미지를 분석한 결과로 Full Dose CT의 주파수 스펙트럼에서 모델이 생성한 이미지의 주파수 스펙트럼의 오차를 시각화한 것으로, V1에 비해 V8, V9에서 노이즈가 옅어지는 경향을 보임, 여전히 고주파 성분에서 오차가 있어 개선이 필요함.
+
+<table border="0">
+  <tr>
+    <th align="center">Model V1</th>
+    <th align="center">Model V8 (Final)</th>
+    <th align="center">Model V9</th>
+  </tr>
+
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/b8e16fe9-831e-4504-b5d0-f4b55df35169" width="300">
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/27ab07f7-c939-408b-9000-3c70a500b6bf" width="300">
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6924816b-a49f-443b-b1c9-72e0383b4d2b" width="300">
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="center" colspan="3"><b>Magnitude Spectrum: Target Dose - Generated</b></td>
+  </tr>
+</table>
 
 ## 추가로 개선할 점
-1. **환경별 성능 편차 (3mm & Sharp)**:
-   - 물리적으로 정보가 소실된 3mm 슬라이스와 인위적으로 에지를 강조한 Sharp 커널의 조합에서 복원 난이도가 가장 높게 나타남. 이는 입력 데이터 자체의 낮은 신호 대 잡음비(SNR)와 구조적 정보 누락에 기인함.
+1. **고주파 신호 오차 개선** :
+   - 고주파 노이즈 제거 및 엣지 보존을 위한 Focal Frequency Loss 검토 후 성능 개선이 필요함.
+   - 장기 내부 조직 질감 유지를 위해 Perceptual Loss 도입 검토 필요함.
 2. **데이터 로딩 병목 해결을 위한 전처리 로직 최적화** (해결 완료)
    - 데이터셋, 데이터 로더 로딩 시  저장된 path를 통해 image load, preprocess, resize 가 이루어지는 것이 원인
      - 해결: 코드 실행 시간을 통해 train_test_split 과정에 시간이 약 5분 소요됨을 확인했음 -> dataset 자체를 split하지 않고, index로 분할하는 방식 사용 후 300초에서 0.03초로 단축됨.
      - 관련 링크 : https://stackoverflow.com/questions/62968187/why-does-train-test-split-take-a-long-time-to-run
-
 
 ## 기타 자료 
 구글 슬라이드 : https://docs.google.com/presentation/d/1iZF5HvIKIUDfgN91kqR2zuEef4898Ti90Ad7n9allpg/edit?usp=sharing
