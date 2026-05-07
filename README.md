@@ -40,12 +40,12 @@
 2. SSIM (Structural Similarity Index Measure) : Generator가 생성한 이미지가 Full Dose CT 이미지와 구조적으로 얼마나 닮았는지 측정하기 위해 사용
 
 ### 1mm & Sharp
-| Metric | V1 |(Final)V9|
+| Metric | V1 |**Final Model(V9)**|
 |---|---|---|
 | **PSNR(Original)** | 35.9679 | 35.9679|
-| **PSNR** | 37.9634 |42.5270|
+| **PSNR** | 37.9634 |**42.5270**|
 | **SSIM(Original)** | 0.9507  |0.9507 |
-| **SSIM** | 0.9616 | 0.9797|
+| **SSIM** | 0.9616 |**0.9797**|
 
 
 <table border="0">
@@ -59,7 +59,7 @@
      <img width="1000"src="https://github.com/user-attachments/assets/7f49d0b2-4852-440a-b841-073c19c171f0" />
   </tr>
   <tr>
-    <td align="center"><b>Model V9</b></td>
+    <td align="center"><b>**Final Model(V9)**</b></td>
     <td colspan="3">
     <img width="1000" src="https://github.com/user-attachments/assets/f29626e8-50c2-442a-848b-4f1234bb0eae" />
   </tr>
@@ -68,12 +68,12 @@
 
 
 ### 1mm & Soft
-| Metric | V1 |V9(Final Model|
+| Metric | V1 |**Final Model(V9)**|
 |---|---|---|
 | **PSNR(Original)** |43.3312 | 43.3312 |
-| **PSNR** |38.0997 |42.1794|
+| **PSNR** |38.0997 |**42.1794**|
 | **SSIM(Original)** | 0.9738 | 0.9738|
-| **SSIM** |  0.9642|0.9834|
+| **SSIM** |  0.9642|**0.9834**|
 
 
 <table border="0">
@@ -88,7 +88,7 @@
     </td>
  </tr>
   <tr>
-    <td align="center"><b>Model V9</b></td>
+    <td align="center"><b>**Final Model(V9)**</b></td>
     <td colspan="3">
    <img width="1000" src="https://github.com/user-attachments/assets/fa150526-2bee-4204-8600-0e95f0764bc0" />
     </td>
@@ -99,12 +99,12 @@
 
 
 ### 3mm & Sharp
-| Metric | V1 |  Final Model(V9)|
+| Metric | V1 | **Final Model(V9)**|
 |---|---|---|
-| **PSNR(Original)** | 44.1647 |  44.1647
-| **PSNR** |38.2807 |44.5578|
+| **PSNR(Original)** | 44.1647 | 44.1647
+| **PSNR** |38.2807 |**44.5578**|
 | **SSIM(Original)** |  0.9790| 0.9790|
-| **SSIM** | 0.9690 |0.9883  |
+| **SSIM** | 0.9690 |**0.9883** |
 
 <table border="0">
   <tr>
@@ -119,7 +119,7 @@
     </td>
  </tr>
  <tr>
-   <td align="center"><b>Model V9</b></td>
+   <td align="center"><b>**Final Model(V9)**</b></td>
     <td colspan="3">
    <img width="1000" src="https://github.com/user-attachments/assets/f660cb99-6aff-4792-9be0-dc67820aea10" />
     </td>
@@ -129,12 +129,12 @@
 
 
 ### 3mm & Soft
-| Metric | V1 |Final Model(V9)|
+| Metric | V1 |**Final Model(V9)**|
 |---|---|---|
 | **PSNR(Original)** | 47.5858 |  47.5858 |
-| **PSNR** |37.8747 |  43.8558|
+| **PSNR** |37.8747 |** 43.8558**|
 | **SSIM(Original)** | 0.9912|  0.9912 |
-| **SSIM** |0.9702|0.9885|
+| **SSIM** |0.9702|**0.9885**|
 
 <table border="0">
   <tr>
@@ -151,7 +151,7 @@
   
   
   <tr>
-    <td align="center"><b>Model V9</b></td>
+    <td align="center"><b>**Final Model(V9)**</b></td>
     <td colspan="3">
       <img src="https://github.com/user-attachments/assets/beec87e8-7f71-4b3d-b7ba-c51e10fb1043" width="1000">
     </td>
@@ -173,8 +173,8 @@
 <table border="0">
   <tr>
     <th align="center">Model V1</th>
-    <th align="center">Model V8 (Final)</th>
-    <th align="center">Model V9</th>
+    <th align="center">Model V8</th>
+    <th align="center">Final Model(V9)</th>
   </tr>
 
   <tr>
