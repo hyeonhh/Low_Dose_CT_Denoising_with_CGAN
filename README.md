@@ -1,8 +1,5 @@
 # LDCT-Denoising-CGAN : Deep Learning based Low-dose CT Image Reconstruction
 저선량 CT 영상의 노이즈를 제거하여 방사선 노출을 줄이면서도 진단 정확도를 높이기 위한 프로젝트 
-- colab 링크 : https://colab.research.google.com/#fileId=https%3A//storage.googleapis.com/kaggle-colab-exported-notebooks/hyeonhh/low-dose-ct-gan.fe20b3d4-6fad-45cc-916d-ec38466255c5.ipynb%3FX-Goog-Algorithm%3DGOOG4-RSA-SHA256%26X-Goog-Credential%3Dgcp-kaggle-com%2540kaggle-161607.iam.gserviceaccount.com/20260507/auto/storage/goog4_request%26X-Goog-Date%3D20260507T114905Z%26X-Goog-Expires%3D259200%26X-Goog-SignedHeaders%3Dhost%26X-Goog-Signature%3D5caa287221692aa5c707fc78721b0d5d50f9df753a27ccf8a8651ebf2aa92e3a501df82de0e1c200c767fcf5a64ca09723619f86fcb715d02be582e1a149374cb58d17f48f379a125c670c27fd9b8561079dc68c3e1ac6db3c58cf7a48df83fc7c75422dd6041ea3b5d2b58a0d55e109a67b9c3f2b056109f505bc063d63fc60e2f997a5bf80aa7c075a8324790b49a9ae7aeabc2103aa9a3678d54b714e456ff355fff6e8e277c9aeda06525bba503feeb744cadd583d785548fdf5117a419207e423af00c343c2d5eefd52d50ca0e5d8b6b0c1c6f7668ff455012efec8add99497bd6b6699a4f63f233b1babf45796d29118ab1055f91c816ffe9ffd2ea8ab
-  
-
 ## 데이터셋
 - 출처 : https://www.kaggle.com/datasets/andrewmvd/ct-low-dose-reconstruction
 - 데이터 구성 : Quater Dose(Input) , Full Dose(Target)
