@@ -202,9 +202,6 @@
      - 해결: 코드 실행 시간을 통해 train_test_split 과정에 시간이 약 5분 소요됨을 확인했음 -> dataset 자체를 split하지 않고, index로 분할하는 방식 사용 후 300초에서 0.03초로 단축됨.
      - 관련 링크 : https://stackoverflow.com/questions/62968187/why-does-train-test-split-take-a-long-time-to-run
 
-## 기타 자료 
-구글 슬라이드 : https://docs.google.com/presentation/d/1iZF5HvIKIUDfgN91kqR2zuEef4898Ti90Ad7n9allpg/edit?usp=sharing
-
 
 
 
