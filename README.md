@@ -33,8 +33,8 @@
 - V7 : Sobel Edge Loss 가중치 0.009로 조정 
 - V8 : 오차 곡선의 진동 및 인위적인 아티팩트 발생을 해결하기 위해 PatchGAN 도입 
 - V9(Final) : V8에서 5 epoch 학습을 추가 진행
+- **결과 : ** 최종 모델은 **PSNR 43.28dB, SSIM 0.9849**의 수치를 기록했습니다.
 
-**최종 모델은 **PSNR 43.28dB, SSIM 0.9849**의 우수한 수치를 기록했습니다.
 **
 ## 정량적 평가 : 복원된 영상의 품질을 객관적으로 측정하기 위해 두 가지 지표 사용
 1. PSNR (Peak Signal-to-Noise Ratio) : Generator가 이미지를 만들면서 발생한 Full dose CT 이미지와의 오차를 계산하기 위해 사용, 수치가 높을수록 Low dose noise가 성공적으로 제거되었음을 의미함
